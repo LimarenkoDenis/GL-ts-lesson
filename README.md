@@ -13,7 +13,7 @@ npm run COMMAND
 - Run `cd [projectName]` and  `npm i` commands
 - copy src/noname directory, to src and rename it to your name
 - you can extend or overwrite tslint or tsconfig by your own, but I recommend to use strict rules
-- Write solutions for src/homework.md, pure functions, and cover them by unit tests
+- Write solutions for tasks described right bellow, pure functions, and cover them by unit tests
 - lymarenko.denys - basic examples
 - Make a PR
 - Feel free to add interesting tasks and make a PR
@@ -95,16 +95,16 @@ Assume both the given number and the number of times to count will be positive n
 Return the results as an array (or list in Python, Haskell or Elixir).
 
 Examples:
-
+```
 countBy(1,10) === [1,2,3,4,5,6,7,8,9,10]
 countBy(2,5) === [2,4,6,8,10]
-
+```
 
 
 ***
 ### Добавить класс в строку
 В объекте есть свойство className, которое содержит список «классов» – слов, разделенных пробелом:
-
+```
 var obj = {
   className: 'open menu'
 }
@@ -116,3 +116,4 @@ addClass(obj, 'me'); // obj.className='open menu new me'
 
 alert( obj.className ); // "open menu new me"
 P.S. Ваша функция не должна добавлять лишних пробелов.
+```
