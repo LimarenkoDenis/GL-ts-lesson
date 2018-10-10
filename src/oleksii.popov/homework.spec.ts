@@ -1,4 +1,4 @@
-import { sum, addClass, camelize } from './homework';
+import { addClass, camelize, removeClass, sum } from './homework';
 
 describe('sum', () => {
   test('basic', () => {
@@ -18,5 +18,10 @@ describe('addClass', () => {
 describe('Camelize', () => {
   test('camelize', () => {
     expect(camelize('border-radius')).toBe('borderRadius')
+  })
+});
+describe('removeClass', () => {
+  test('removeClass', () => {
+    expect(removeClass({ className: 'add new class' }, 'class')).toEqual({ className: 'add new' });
   })
 })
