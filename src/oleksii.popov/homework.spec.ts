@@ -13,7 +13,7 @@ describe('sum', () => {
 describe('addClass', () => {
   test('addClass', () => {
     expect(addClass({ className: 'open new' }, 'class')).toEqual({ className: 'open new class' })
-  })
+  });
 });
 describe('Camelize', () => {
   test('camelize', () => {
@@ -24,4 +24,4 @@ describe('removeClass', () => {
   test('removeClass', () => {
     expect(removeClass({ className: 'add new class' }, 'class')).toEqual({ className: 'add new' });
   })
-})
+});
