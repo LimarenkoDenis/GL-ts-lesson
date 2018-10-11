@@ -8,7 +8,7 @@ export const addClass: (obj: { className: string }, cls: string)
     }
     return obj;
   }
-export const camelize: (property: string) => string = (property: string) => {
+export const camelizeProperty: (property: string) => string = (property: string) => {
   let string = property.split('-');
   for (let i = 1; i < string.length; i++) {
     string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1);
