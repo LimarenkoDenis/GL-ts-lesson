@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.11",
     "rxjs": "^6.3.2"
   },
   "devDependencies": {
