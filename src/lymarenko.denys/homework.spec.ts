@@ -1,19 +1,19 @@
 import { MN, multiplyNumeric, propertySum, sum } from './homework';
 
 describe('sum', () => {
-  test('basic', () => {
+  test('sum of 1, 2, 3, 4 should return 10', () => {
     expect(sum(1, 2, 3, 4)).toBe(10);
   });
 
-  test('basic again', () => {
+  test('sum of 1, 2 should return 3', () => {
     expect(sum(1, 2)).toBe(3);
   });
 
 });
 
 
-describe('object property sub', () => {
-  test('basic', () => {
+describe('should return sum of object properties', () => {
+  test('should return 650', () => {
     const salaries: { [key: string]: number } = {
       Вася: 100,
       Петя: 300,
@@ -23,7 +23,7 @@ describe('object property sub', () => {
     expect(propertySum(salaries)).toBe(650);
   });
 
-  test('basic again', () => {
+  test('should return 6', () => {
     const salaries: { [key: string]: number } = {
       Вася: 1,
       Петя: 2,
@@ -35,8 +35,8 @@ describe('object property sub', () => {
 });
 
 
-describe('multiplyNumeric', () => {
-  it('multiplies all numeric properties by 2', () => {
+describe('multiplies all numeric object properties by 2 or return value if not a number', () => {
+  it('should return new object with property multiplies * 2, and property with string value', () => {
     const menu: MN = {
       width: 200,
       height: 300,
