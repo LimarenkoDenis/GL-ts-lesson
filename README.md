@@ -1,5 +1,7 @@
 ## TS lesson
 
+[![Build Status](https://travis-ci.org/LimarenkoDenis/GL-ts-lesson.svg?branch=master)](https://travis-ci.org/LimarenkoDenis/GL-ts-lesson)
+
 ```
 npm run COMMAND
 "dev:w": "webpack-dev-server -w --progress --colors",
