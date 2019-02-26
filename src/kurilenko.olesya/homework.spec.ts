@@ -3,7 +3,8 @@ import {
   maxSalary,
   multiplyNumeric,
   countBy,
-  addClass
+  addClass,
+  addClass2
 } from './homework';
 
 var salaries = {
@@ -69,5 +70,15 @@ describe('function addClass', () => {
 
   test(`should return open menu new`, () => {
     expect(addClass(obj,'new').className).toBe('open menu new');
+  });
+});
+
+describe('function addClass2', () => {
+  test(`should return 'open menu'`, () => {
+    expect(addClass2('open')(obj).className).toBe('open menu');
+  });
+
+  test(`should return open menu new`, () => {
+    expect(addClass2('new')(obj).className).toBe('open menu new');
   });
 });

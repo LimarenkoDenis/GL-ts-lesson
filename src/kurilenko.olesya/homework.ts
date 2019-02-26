@@ -60,6 +60,17 @@ export const addClass: (obj: { className: string }, addName: string) => { classN
     return obj;
   }
 
+  export function addClass2(addName: string):(obj: { className: string }) => { className: string } {
+    
+    return function(obj): { className: string } {
+      return (obj.className.indexOf(addName.trim()) === -1)?
+        { className: obj.className+' '+addName.trim() }
+        :
+        { className: obj.className }
+    }
+}
+ 
+
 function isNumeric(n: (string | number)): boolean {
   if ('string' === typeof n) {
     return false;
