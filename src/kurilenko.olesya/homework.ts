@@ -56,7 +56,7 @@ export const addClass: (obj: { className: string }, addName: string) => { classN
   ({ ...obj }: { className: string }, addName: string): { className: string } => {
     const classes: string[] = obj.className.split(' ');
     if (classes.indexOf(addName.trim()) === -1)
-      obj.className = obj.className + ' ' + addName.trim();
+      obj.className = obj.className.concat(' ',addName.trim());
     return obj;
   }
 
@@ -64,13 +64,11 @@ export const addClass: (obj: { className: string }, addName: string) => { classN
     
     return function(obj): { className: string } {
       return (obj.className.indexOf(addName.trim()) === -1)?
-        { className: obj.className+' '+addName.trim() }
+        { className: obj.className.concat(' ',addName.trim()) }
         :
         { className: obj.className }
     }
 }
- 
-
 function isNumeric(n: (string | number)): boolean {
   if ('string' === typeof n) {
     return false;
