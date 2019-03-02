@@ -1,46 +1,56 @@
-import { addClass, countBy, maxValue, multiplyNumeric, sum } from './homework';
-
-const salaries: {} = {
-  'Вася': 100,
-  'Петя': 300,
-  'Даша': 250
-};
-const salaries2: {} = {
-  'Вася': 700,
-  'Петя': 150,
-  'Даша': 150
-};
-const menu: {} = {
-  width: 200,
-  height: 300,
-  title: 'My menu'
-};
-const menu2: {} = {
-  width: 400,
-  height: 'some',
-  title: 100
-};
-const obj: {} = {
-  className: 'open menu'
-};
+import {
+  addClass,
+  countBy,
+  maxValue,
+  multiplyNumeric,
+  objClassNameType,
+  salObjType,
+  sum,
+  valueListType
+} from './homework';
 
 test('sum', () => {
+  const salaries: salObjType = {
+    'Вася': 100,
+    'Петя': 300,
+    'Даша': 250
+  };
   expect(sum(salaries)).toBe(650);
 });
 test('sum again', () => {
+  const salaries2: salObjType = {
+    'Вася': 700,
+    'Петя': 150,
+    'Даша': 150
+  };
   expect(sum(salaries2)).toBe(1000);
 });
 
 
 test('maxValue', () => {
+  const salaries: salObjType = {
+    'Вася': 100,
+    'Петя': 300,
+    'Даша': 250
+  };
   expect(maxValue(salaries)).toBe('Петя');
 });
 test('maxValue again', () => {
+  const salaries2: salObjType = {
+    'Вася': 700,
+    'Петя': 150,
+    'Даша': 150
+  };
   expect(maxValue(salaries2)).toBe('Вася');
 });
 
 
 test('multiplyNumeric', () => {
+  const menu: valueListType = {
+    width: 200,
+    height: 300,
+    title: 'My menu'
+  };
   expect(multiplyNumeric(menu)).toEqual({
     width: 400,
     height: 600,
@@ -48,6 +58,11 @@ test('multiplyNumeric', () => {
   });
 });
 test('multiplyNumeric again', () => {
+  const menu2: valueListType = {
+    width: 400,
+    height: 'some',
+    title: 100
+  };
   expect(multiplyNumeric(menu2)).toEqual({
     width: 800,
     height: 'some',
@@ -65,11 +80,20 @@ test('countBy again', () => {
 
 
 test('addClass', () => {
+  const obj: objClassNameType = {
+    className: 'open menu'
+  };
   expect(addClass(obj, 'new')).toBe('open menu new');
 });
 test('addClass again', () => {
-  expect(addClass(obj, 'open')).toBe('open menu new');
+  const obj: objClassNameType = {
+    className: 'open menu'
+  };
+  expect(addClass(obj, 'open')).toBe('open menu');
 });
 test('addClass again2', () => {
-  expect(addClass(obj, 'ME')).toBe('open menu new ME');
+  const obj: objClassNameType = {
+    className: 'open menu'
+  };
+  expect(addClass(obj, 'ME')).toBe('open menu ME');
 });
