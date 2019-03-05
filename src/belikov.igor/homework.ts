@@ -4,7 +4,7 @@ export const sum: (...a: number[]) => number
 export const sumOfProperties: (arg: { [key: string]: number }) => number =
   (arg: { [key: string]: number }) => Object.keys(arg).reduce((acc: number, cur: string) => acc + arg[cur], 0);
 
-export const maxSalary: (employees : { [key: string]: number }) => string =
+export const maxSalary: (employees: { [key: string]: number }) => string =
   (employees: { [key: string]: number }) => {
     let emploeeWithMaxSalary: string = "no employees";
     let currSalary: number = 0;
@@ -16,3 +16,10 @@ export const maxSalary: (employees : { [key: string]: number }) => string =
     })
     return emploeeWithMaxSalary;
   }
+
+function isNumeric(n: any): boolean {
+  return !isNaN(parseFloat(n)) && isFinite(n)
+}
+
+export const doubleNumerics: (arg: { [key: string]: any }) => void =
+  (arg: { [key: string]: any }) => Object.keys(arg).forEach(prop => isNumeric(arg[prop]) && (arg[prop] *= 2));
