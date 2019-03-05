@@ -1,4 +1,4 @@
-import { sum, sumOfProperties } from './homework';
+import { sum, sumOfProperties, maxSalary } from './homework';
 
 test('basic', () => {
   expect(sum(1, 2, 3, 4)).toBe(10);
@@ -19,4 +19,17 @@ test('sum of properties when has properties', () => {
 
 test('sum of properties when has no properties', () => {
   expect(sumOfProperties({})).toBe(0);
+});
+
+test('employee with max salary when has properties', () => {
+  const testedObject: {[key: string]:number} = {
+    "Petya": 2,
+    "Vasya": 100,
+    "Pupa": 98
+  };
+  expect(maxSalary(testedObject)).toBe("Vasya");
+});
+
+test('max salary when has no properties', () => {
+  expect(maxSalary({})).toBe("no employees");
 });
