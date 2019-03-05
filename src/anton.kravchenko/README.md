@@ -4,7 +4,7 @@
 
 `npm run build` - compiles .ts to the dist folder
 
-`npm run build` - compiles .ts to the dist folder without the `check-health` procedure
+`npm run force-build` - compiles .ts to the dist folder without the `check-health` procedure
 
 `npm run check-health` - executes `lint` and `test` npm scripts
 

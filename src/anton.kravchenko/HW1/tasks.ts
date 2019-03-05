@@ -29,7 +29,7 @@ const multiplyNumeric = (d: IDict<string | number>): IDict<string | number> =>
   );
 
 /* I've spent roughly 2 hours to add types for the following func and while
-all whose "types" are perfectly valid (at least I believe so),
+all those "types" are perfectly valid (at least I believe so),
 this makes me think, that the author of 
 https://medium.com/javascript-scene/the-typescript-tax-132ff4cb175b (highly recommend to read)
 is actually right about some "aspects" of strong typing "at scale". */
