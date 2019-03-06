@@ -1,4 +1,4 @@
-import { sum, sumOfProperties, maxSalary, doubleNumerics } from './homework';
+import { sum, sumOfProperties, maxSalary, doubleNumerics, addClass } from './homework';
 
 test('basic', () => {
   expect(sum(1, 2, 3, 4)).toBe(10);
@@ -46,4 +46,25 @@ test('double numeric properties', () => {
     "Vasya": 200,
     "Pupa": true
   });
+});
+
+test("add class to empty string", () => {
+  const obj: { className: string } = { className: "" };
+
+  const test = addClass(obj, "hello");
+  expect(test).toMatchObject({className: "hello"});
+});
+
+test("add class to string", () => {
+  const obj: { className: string } = { className: "hello" };
+
+  const test = addClass(obj, "bye");
+  expect(test).toMatchObject({className:"hello bye"});
+});
+
+test("add class to string with existed one", () => {
+  const obj: { className: string } = { className: "hello" };
+
+  const test = addClass(obj, "hello");
+  expect(test).toMatchObject({className:"hello"});
 });

@@ -23,3 +23,17 @@ function isNumeric(n: any): boolean {
 
 export const doubleNumerics: (arg: { [key: string]: any }) => void =
   (arg: { [key: string]: any }) => Object.keys(arg).forEach(prop => isNumeric(arg[prop]) && (arg[prop] *= 2));
+
+
+export const addClass: (obj: {className: string}, cls: string) => {className: string} =
+(obj: {className: string}, cls: string) => {
+  if (!obj.className.split(" ").some(str => str === cls)) {
+    if (obj.className.length > 0) {
+      obj.className += ` ${cls}`;
+    } else {
+      obj.className += cls;
+    }
+  }
+
+  return obj;
+}
