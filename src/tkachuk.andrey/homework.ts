@@ -42,14 +42,14 @@ var salaries = {
 // ... ваш код выведет "Петя"
  */
 
-export const noEmployeesMessage = 'нет сотрудников';
-
 export function maxSalary(salaries: SalaryInfo): number | string {
+  const noEmployeesMessage: string = 'нет сотрудников';
+
   if (Object.keys(salaries).length === 0) {
     return noEmployeesMessage;
   }
 
-  let sortedSalaries = Object.values(salaries).sort((prev: number, next: number) => {
+  let sortedSalaries: number[] = Object.values(salaries).sort((prev: number, next: number) => {
     return next - prev;
   });
 

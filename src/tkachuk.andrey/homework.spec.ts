@@ -1,4 +1,4 @@
-import { sumSalaries, maxSalary, noEmployeesMessage, multiplyNumeric, countBy, addClass } from './homework';
+import { sumSalaries, maxSalary, multiplyNumeric, countBy, addClass } from './homework';
 
 /* Sum salaries tests */
 test('empty object(sum 0)', () => {
@@ -24,7 +24,7 @@ test('sum salary 700', () => {
 /* Max salary tests */
 
 test('no employees', () => {
-  expect(maxSalary({})).toBe(noEmployeesMessage);
+  expect(maxSalary({})).toBe('нет сотрудников');
 });
 
 test('max salary 300', () => {
