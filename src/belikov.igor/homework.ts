@@ -25,15 +25,22 @@ export const doubleNumerics: (arg: { [key: string]: any }) => void =
   (arg: { [key: string]: any }) => Object.keys(arg).forEach(prop => isNumeric(arg[prop]) && (arg[prop] *= 2));
 
 
-export const addClass: (obj: {className: string}, cls: string) => {className: string} =
-(obj: {className: string}, cls: string) => {
-  if (!obj.className.split(" ").some(str => str === cls)) {
-    if (obj.className.length > 0) {
-      obj.className += ` ${cls}`;
-    } else {
-      obj.className += cls;
+export const addClass: (obj: { className: string }, cls: string) => { className: string } =
+  (obj: { className: string }, cls: string) => {
+    if (!obj.className.split(" ").some(str => str === cls)) {
+      if (obj.className.length > 0) {
+        obj.className += ` ${cls}`;
+      } else {
+        obj.className += cls;
+      }
     }
+
+    return obj;
   }
 
-  return obj;
-}
+export const countBy: (a: number, b: number) => number[] =
+  (a: number, b: number) => {
+    let arr = [...Array(b).keys()];
+    arr.forEach((item, index) => arr[index] = (item + 1) * a);
+    return arr;
+  }

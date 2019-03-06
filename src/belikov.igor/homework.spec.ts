@@ -1,4 +1,4 @@
-import { sum, sumOfProperties, maxSalary, doubleNumerics, addClass } from './homework';
+import { sum, sumOfProperties, maxSalary, doubleNumerics, addClass, countBy } from './homework';
 
 test('basic', () => {
   expect(sum(1, 2, 3, 4)).toBe(10);
@@ -68,3 +68,8 @@ test("add class to string with existed one", () => {
   const test = addClass(obj, "hello");
   expect(test).toMatchObject({className:"hello"});
 });
+
+test("count by test", () => {
+  var test = countBy(2, 3);
+  expect(test).toEqual([2, 4, 6]);
+})
