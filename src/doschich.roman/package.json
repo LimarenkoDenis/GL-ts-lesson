@@ -1,0 +1,21 @@
+{
+  "name": "homework1",
+  "version": "1.0.0",
+  "description": "this like first camp homework",
+  "main": "homework.ts",
+  "scripts": {
+    "start": "ts-node homework.ts",
+    "build": "tsc homework.ts",
+    "test": "mocha -r ts-node/register *.spec.ts"
+  },
+  "author": "doschich.roman",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.13.1",
+    "typescript": "^3.3.3333"
+  }
+}
