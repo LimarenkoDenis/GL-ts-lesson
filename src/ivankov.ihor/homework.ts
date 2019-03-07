@@ -1,12 +1,12 @@
-export type NumericValues = { [key: string]: number }
-export type AnyValues = { [key: string]: any }
+export type NumericValues = { [key: string]: number };
+export type AnyValues = { [key: string]: any };
 export interface IClassName {
   className: string;
 }
 
 export const isNumeric = function(n: any): boolean {
   return !isNaN(parseFloat(n)) && isFinite(n);
-}
+};
 
 export const propertySum = function(values: NumericValues): number {
     let sum: number = 0;
@@ -14,7 +14,7 @@ export const propertySum = function(values: NumericValues): number {
       sum += values[element];
     });
     return sum;
-  }
+  };
 
 export const maxValueProperty = function(values: NumericValues): string {
   let maxValue: number = 0;
@@ -26,27 +26,28 @@ export const maxValueProperty = function(values: NumericValues): string {
     }
   });
   return valueName;
-}
+};
 
 export const multiplyNumeric = function(values: AnyValues, multiplier: number = 2): void {
-  for(const key in values) {
+  for (const key in values) {
     values[key] = isNumeric(values[key]) ? values[key] * multiplier : values[key];
   }
-}
+};
 
 export const addClass = function(obj: IClassName, newClass: string): void {
   let currentClasses = obj.className.split(' ');
-  if (currentClasses.indexOf(newClass) == -1) {
+  if (currentClasses.indexOf(newClass) === -1) {
     currentClasses.push(newClass);
   }
   obj.className = currentClasses.join(' ');
-}
+};
 
 export const countBy = function(x: number, n: number): number[] {
   let result: number[] = [];
-  for (let ind = 0, initial = x; ind < n; ind++) {
+  let initial: number = x;
+  for (let ind: number = 0; ind < n; ind++) {
     result.push(initial);
     initial += x;
   }
   return result;
-}
+};
