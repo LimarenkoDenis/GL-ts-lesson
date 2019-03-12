@@ -5,7 +5,7 @@ interface ISalariesType {
   [key: string]: number;
 }
 export interface IMenuType {
-  [key: string]: any;
+  [key: string]: number | string;
 }
 export interface IClassType {
   [key: string]: string;
@@ -16,16 +16,15 @@ const salaries: ISalariesType = {
   Даша: 250,
   Петя: 300,
 };
-salaries.Валера = 250;
 
 const menu: IMenuType = {
   height: 300,
-  title: "My menu",
+  title: 'My menu',
   width: 200,
 };
 
 const element: IClassType = {
-  className: "open   menu    class",
+  className: 'open   menu    class',
 };
 
 calculateSum(salaries);
@@ -33,8 +32,8 @@ findMax(salaries);
 multiplyNumeric(menu);
 countBy(1, 10);
 countBy(2, 5);
-addClass(element, "  menu");
-addClass(element, "   newClass   ");
+addClass(element, '  menu');
+addClass(element, '   newClass   ');
 
 export function calculateSum(arg: ISalariesType): number {
   const arr: number[] = [];
@@ -50,7 +49,7 @@ export function calculateSum(arg: ISalariesType): number {
 
 export function findMax(arg: ISalariesType): string {
   let max: number = 0;
-  let name: string = "";
+  let name: string = '';
 
   for (const i of Object.keys(arg)) {
     const current: number = arg[i];
@@ -65,21 +64,24 @@ export function findMax(arg: ISalariesType): string {
 }
 
 export function multiplyNumeric(arg: IMenuType): IMenuType {
-  const isNumeric = (n: any): boolean => !isNaN(parseFloat(n)) && isFinite(n);
+  /* tslint:disable:no-any */
+  function isNumeric(n: any): boolean {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
 
   for (const i of Object.keys(arg)) {
     if (isNumeric(arg[i])) {
-      menu[i] = arg[i] * 2;
+      menu[i] = +arg[i] * 2;
     }
   }
 
   return menu;
 }
 
-export function countBy(a: number, b: number) {
-  const arr = [];
+export function countBy(a: number, b: number): number[] {
+  const arr: number[] = [];
 
-  for (let i = 1; i <= b; i++) {
+  for (let i: number = 1; i <= b; i++) {
     arr[i - 1] = i * a;
   }
 
@@ -87,11 +89,11 @@ export function countBy(a: number, b: number) {
 }
 
 export function addClass(obj: IClassType, cls: string): object {
-  const arr = obj.className.split(" ");
-  cls = cls.replace(/^\s*/, "").replace(/\s*$/, "");
+  const arr: string[] = obj.className.split(' ');
+  cls = cls.replace(/^\s*/, '').replace(/\s*$/, '');
 
-  for (let i = arr.length - 1; i >= 0; i--) {
-    if (arr[i] === "") {
+  for (let i: number = arr.length - 1; i >= 0; i--) {
+    if (arr[i] === '') {
       arr.splice(i, 1);
     }
   }
@@ -100,14 +102,13 @@ export function addClass(obj: IClassType, cls: string): object {
     arr.push(cls);
   }
 
-  obj.className = arr.join(" ");
+  obj.className = arr.join(' ');
   return obj;
 }
 
 function hasClass(obj: IClassType, cls: string): boolean {
-  const arr = obj.className.split(" ");
-  /* tslint:disable:prefer-for-of */
-  for (let i = 0; i < arr.length; i++) {
+  const arr: string[] = obj.className.split(' ');
+  for (let i: number = 0; i < arr.length; i++) {
     if (arr[i] === cls) {
       return true;
     }
