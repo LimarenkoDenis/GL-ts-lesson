@@ -96,7 +96,7 @@ describe('Test HW1 solutions', () => {
       [0, 0, [0]],
     ])(
       '.countBy properly generates a range for the following arguments: %i, %i',
-      (step: number, till: number, expected: number) =>
+      (step: any, till: any, expected: any) =>
         expect(countBy(step, till)).toEqual(expected),
     );
   });
