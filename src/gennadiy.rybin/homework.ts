@@ -39,3 +39,13 @@ export const multiplyNumeric: (obj: IMenu) => IMenu
   });
   return obj;
 };
+
+// Create a function with two arguments that will return a list of length (n) with multiples of (x).
+export const countBy: (x: number, n: number) => number[]
+= (x: number, n: number) => {
+  const result: number[] = [];
+  for ( let i: number = 1; i <= n; i++ ) {
+    result.push(x * i);
+  }
+  return result;
+};
