@@ -1,5 +1,5 @@
-import { sum, sallarySum, sallaryMax } from './homework';
-import { ISalary } from './interfaces';
+import { sum, sallarySum, sallaryMax, multiplyNumeric } from './homework';
+import { ISalary, IMenu } from './interfaces';
 
 test('basic', () => {
   expect(sum(1, 2, 3, 4)).toBe(10);
@@ -40,5 +40,21 @@ describe('sallaryMax', () => {
 
   test('basic with an empty object', () => {
     expect(sallaryMax({})).toBe('нет сотрудников');
+  });
+});
+
+describe('multiplyNumeric', () => {
+  const menu: IMenu = {
+    width: 200,
+    height: 300,
+    title: 'My menu'
+  };
+
+  test('basic', () => {
+    expect(multiplyNumeric(menu)).toEqual({
+      width: 400,
+      height: 600,
+      title: 'My menu'
+    });
   });
 });
