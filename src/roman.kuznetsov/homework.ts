@@ -14,4 +14,21 @@ export const maxSalaryEmployee: (salaries: { [key: string]: number }) => string
             salaries[prev] > salaries[cur] ? prev : cur);
     }
 };
+export type MN = { [key: string]: number | string };
 
+export function multiplyNumeric(obj: MN): MN {
+   return Object.keys(obj).reduce((acc: MN, key: string) => {
+   const entry: string | number = obj[key];
+   if (isNumeric(entry)) {
+       return { ...acc, ...{ [key]: (entry as number) * 2 }};
+   }
+   return { ...acc, ...{ [key]: entry}};
+   }, {});
+}
+
+function isNumeric(n: string | number): boolean {
+    if (typeof n === 'number') {
+        return true;
+    }
+    return false;
+}

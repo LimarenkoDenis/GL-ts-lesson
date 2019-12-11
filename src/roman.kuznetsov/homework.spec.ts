@@ -1,4 +1,4 @@
-import { maxSalaryEmployee, propertySum, sum } from './homework';
+import { maxSalaryEmployee, MN, multiplyNumeric, propertySum, sum } from './homework';
 
 test('basic', () => {
   expect(sum(1, 2, 3, 4)).toBe(10);
@@ -58,3 +58,22 @@ describe('should return name of max salary employee', () => {
     expect(maxSalaryEmployee(salaries)).toBe('Петя');
   });
 });
+
+describe('should return object properties multiplication to 2', () => {
+  test('should return equal expected object', () => {
+    const test: MN = {
+      Вася: 100,
+      Петя: 300,
+      Даша: '250',
+    };
+
+    const expected: MN = {
+      Вася: 200,
+      Петя: 600,
+      Даша: '250',
+    };
+
+    // const result: MN = multiplyNumeric(salaries);
+    expect(multiplyNumeric(test)).toEqual(expected);
+  });
+  });
