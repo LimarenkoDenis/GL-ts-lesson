@@ -1,4 +1,4 @@
-import { ISalary, IMenu } from './interfaces';
+import { ISalary, IMenu, IClassName } from './interfaces';
 
 export const sum: (...a: number[]) => number
   = (...a: number[]) => a.reduce((acc: number, val: number) => acc + val, 0);
@@ -48,4 +48,16 @@ export const countBy: (x: number, n: number) => number[]
     result.push(x * i);
   }
   return result;
+};
+
+// Создайте функцию addClass(obj, cls), которая добавляет в список класс cls и возвращает новый обьект,
+// но только если его там еще нет:
+export const addClass: (obj: IClassName, cls: string) => IClassName
+= ( obj: IClassName, cls: string ) => {
+  const arr: string[] = obj.className.split(' ');
+  if (obj.className.split(' ').indexOf(cls) === -1) {
+    arr.push(cls);
+    obj.className = arr.join(' ');
+  }
+  return obj;
 };

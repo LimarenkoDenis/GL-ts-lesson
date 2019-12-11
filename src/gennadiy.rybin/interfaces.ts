@@ -5,3 +5,7 @@ export interface ISalary {
 export interface IMenu {
     [key: string]: (number | string);
 }
+
+export interface IClassName {
+    className: string;
+}

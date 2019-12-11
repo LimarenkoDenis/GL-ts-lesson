@@ -1,4 +1,4 @@
-import { sum, sallarySum, sallaryMax, multiplyNumeric, countBy } from './homework';
+import { sum, sallarySum, sallaryMax, multiplyNumeric, countBy, addClass } from './homework';
 import { ISalary, IMenu } from './interfaces';
 
 test('basic', () => {
@@ -65,5 +65,14 @@ describe('countBy', () => {
   });
   test('second', () => {
     expect(countBy(2,5)).toEqual([2,4,6,8,10]);
+  });
+});
+
+describe('addClass', () => {
+  test('new class', () => {
+    expect(addClass({className: 'open menu'}, 'new').className).toEqual('open menu new');
+  });
+  test('existing class', () => {
+    expect(addClass({className: 'open menu'}, 'open').className).toEqual('open menu');
   });
 });
