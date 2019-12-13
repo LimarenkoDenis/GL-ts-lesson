@@ -32,3 +32,19 @@ function isNumeric(n: string | number): boolean {
     }
     return false;
 }
+
+
+export class Clazz {
+  public constructor(
+      public className: string,
+  ) {}
+}
+
+export function addClass(obj: Clazz, cls: string): Clazz {
+    const searchIndex: number = obj.className.search(cls);
+    if (searchIndex === -1) {
+        const newClassName: string = obj.className + ' ' + cls;
+        return new Clazz(newClassName);
+    }
+    return obj;
+}
