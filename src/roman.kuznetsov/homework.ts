@@ -48,3 +48,13 @@ export function addClass(obj: Clazz, cls: string): Clazz {
     }
     return obj;
 }
+
+export const countBy: (step: number, length: number) => number[] = (step: number, length: number) => {
+    const arr: number[] = [];
+    if ( step >= 1 && length >= 1) {
+        for (let i: number = step; i <= step * length; i += step) {
+            arr.push(i);
+        }
+    }
+    return arr;
+};
