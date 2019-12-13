@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "lib": [
+      "es2019",
+      "es6",
+      "dom"
+    ],
+    "sourceMap": true,
+  },
+  "include": [
+    "/**/*.ts"
+  ]
+}
