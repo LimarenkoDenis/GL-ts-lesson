@@ -32,7 +32,7 @@ export const sallaryMax: (obj: ISalary) => string
 // Создайте функцию multiplyNumeric, которая получает объект и умножает все численные свойства на 2.
 export const multiplyNumeric: (obj: IMenu) => IMenu
 = (obj: IMenu) => {
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key: string) => {
     if (isNumeric(obj[key])) {
       obj[key] = obj[key] as number * 2;
     }
