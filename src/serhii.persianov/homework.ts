@@ -18,7 +18,7 @@ export interface IAnyObject {
   [key: string]: any;
 }
 
-export const salariesSum: (a: IStrNumObj) => number = (obj: object) => {
+export const salariesSum: (a: IStrNumObj) => number = (obj: IStrNumObj) => {
   return sum(...Object.values(obj));
 };
 
