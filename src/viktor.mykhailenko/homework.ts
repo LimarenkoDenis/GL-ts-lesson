@@ -66,6 +66,7 @@ export const multiplyNumeric: (obj: IMenu) => void = (obj: IMenu) => {
     for ( const key in obj) {
         isNumeric(obj[key]) ? (obj[key] as number) *= 2 : obj[key] = obj[key];
     }
+    return obj;
 };
 
 export const countBy: (x: number, y: number) => number[] = (x: number, y: number) => {
@@ -87,4 +88,5 @@ export const addClass: (a: IClassList, newClass: string)
         allClasses.push(newClass);
         a.className = allClasses.join(' ');
     }
+    return a;
 };

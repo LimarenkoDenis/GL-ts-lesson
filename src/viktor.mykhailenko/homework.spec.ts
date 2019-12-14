@@ -25,19 +25,19 @@ test('maxSelary test', () => {
 });
 
 test('multiplyNumeric test', () => {
-    expect(firstHw.multiplyNumeric(firstHw.menu)).toBe({width: 400, height: 600, title: 'My menu'});
+    expect(firstHw.multiplyNumeric(firstHw.menu)).toEqual({width: 400, height: 600, title: 'My menu'});
 });
 
 test('addClass test', () => {
-    expect(firstHw.addClass(firstHw.classList, 'new')).toBe({
+    expect(firstHw.addClass(firstHw.classList, 'new')).toEqual({
         className: 'open menu new'
     });
 });
 
 test('countBy test', () => {
-    expect(firstHw.countBy(1, 10)).toBe([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(firstHw.countBy(1, 10)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 });
 
 test('countBy test', () => {
-    expect(firstHw.countBy(2, 5)).toBe([2, 4, 6, 8, 10]);
+    expect(firstHw.countBy(2, 5)).toEqual([2, 4, 6, 8, 10]);
 });
