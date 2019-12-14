@@ -12,3 +12,15 @@ export function salariesSum(salaries: SalaryMap): number {
     });
     return sum;
 }
+
+export function whomMaxSalary(salaries: SalaryMap): string {
+    let whom: string = "нет сотрудников";
+    let max: number = 0;
+    Object.keys(salaries).forEach((key: string) => {
+        if (salaries[key] > max) {
+            max = salaries[key];
+            whom = key;
+        }
+    });
+    return whom;
+}
