@@ -2,15 +2,11 @@ export const sum: (...a: number[]) => number
     = (...a: number[]) => a.reduce((acc: number, val: number) => acc + val, 0);
 
 interface IMenu {
-    width: number;
-    height: number;
-    title: string;
+    [key: string]: number | string;
 }
 
 interface ISalaries {
-    'Vasya': number;
-    'Petya': number;
-    'Dasha': number;
+    [key: string]: number;
 }
 
 interface IClassList {
@@ -23,7 +19,7 @@ export const salaries: ISalaries = {
     'Dasha': 250
 };
 
-export const valueSum: (obj: object) => number = (obj: object) => {
+export const valueSum: (obj: ISalaries) => number = (obj: ISalaries) => {
     let result: number = 0;
     if (Object.keys(obj).length > 0) {
         for ( const key in obj) {
@@ -35,7 +31,7 @@ export const valueSum: (obj: object) => number = (obj: object) => {
 };
 
 
-export const maxSelary: (obj: object) => string = (obj: object) => {
+export const maxSelary: (obj: ISalaries) => string = (obj: ISalaries) => {
     let result: string = 'нет сотрудников';
     if (Object.keys(obj).length > 0) {
         const newArray: number[] = [];
@@ -59,16 +55,18 @@ export const menu: IMenu = {
     title: 'My menu'
 };
 
-function isNumeric(n: any): boolean {
-    return !isNaN(parseFloat(n)) && isFinite(n);
+function isNumeric(n: (number | string)): boolean {
+    if (typeof n === 'number') {
+        return true;
+    }
+    return false;
 }
 
-export const multiplyNumeric: (obj: object) => void = (obj: object) => {
+export const multiplyNumeric: (obj: IMenu) => void = (obj: IMenu) => {
     for ( const key in obj) {
-        (isNumeric(obj[key])) ? obj[key] *= 2 : obj[key] = obj[key];
+        isNumeric(obj[key]) ? (obj[key] as number) *= 2 : obj[key] = obj[key];
     }
 };
-
 
 export const countBy: (x: number, y: number) => number[] = (x: number, y: number) => {
     const newArray: number[] = [];
@@ -82,8 +80,8 @@ export let classList: IClassList = {
     className: 'open menu'
 };
 
-export const addClass: (a: { className: string }, newClass: string)
-    => void = (a: { className: string }, newClass: string) => {
+export const addClass: (a: IClassList, newClass: string)
+    => void = (a: IClassList, newClass: string) => {
     const allClasses: string[] = a.className.split(' ');
     if (allClasses.indexOf(newClass) === -1 ) {
         allClasses.push(newClass);
