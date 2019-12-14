@@ -1,9 +1,43 @@
-import { sum } from './homework';
+import * as firstHw from './homework';
 
 test('basic', () => {
-  expect(sum(1, 2, 3, 4)).toBe(10);
+    expect(firstHw.sum(1, 2, 3, 4)).toBe(10);
 });
 
 test('basic again', () => {
-  expect(sum(1, 2)).toBe(3);
+    expect(firstHw.sum(1, 2)).toBe(3);
+});
+
+test('valueSum test', () => {
+    expect(firstHw.valueSum(firstHw.salaries)).toBe(650);
+});
+
+test('valueSum test', () => {
+    expect(firstHw.valueSum({})).toBe(0);
+});
+
+test('maxSelary test', () => {
+    expect(firstHw.maxSelary(firstHw.salaries)).toBe('Petya');
+});
+
+test('maxSelary test', () => {
+    expect(firstHw.maxSelary({})).toBe('нет сотрудников');
+});
+
+test('multiplyNumeric test', () => {
+    expect(firstHw.multiplyNumeric(firstHw.menu)).toBe({width: 400, height: 600, title: 'My menu'});
+});
+
+test('addClass test', () => {
+    expect(firstHw.addClass(firstHw.classList, 'new')).toBe({
+        className: 'open menu new'
+    });
+});
+
+test('countBy test', () => {
+    expect(firstHw.countBy(1, 10)).toBe([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+});
+
+test('countBy test', () => {
+    expect(firstHw.countBy(2, 5)).toBe([2, 4, 6, 8, 10]);
 });
