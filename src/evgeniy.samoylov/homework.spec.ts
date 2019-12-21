@@ -1,5 +1,5 @@
-import {sum} from './homework';
-import {SalaryMap, salariesSum, whomMaxSalary} from "../evgeniy.samoylov/homework";
+import {addClass, SomeClass, sum} from './homework';
+import {SalaryMap, salariesSum, whomMaxSalary, Menu, multiplyNumeric, countBy} from "./homework";
 
 test('basic', () => {
     expect(sum(1, 2, 3, 4)).toBe(10);
@@ -56,5 +56,46 @@ describe('Whom salary is ', () => {
     it('Must return нет сотрудников', () => {
         const salaries = {};
         expect(whomMaxSalary(salaries)).toBe("нет сотрудников");
+    });
+});
+
+describe('Multiplying', () => {
+    it('Must return Петя', () => {
+        const menu: Menu = {
+            width: 200,
+            height: 300,
+            title: "My menu"
+        };
+        multiplyNumeric(menu);
+        expect(menu.width).toBe(400);
+        expect(menu.height).toBe(600);
+    });
+});
+
+describe('countBy', () => {
+    it('Must return [2,4,6,8,10]', () => {
+        const n : number = 2;
+        const x : number = 5;
+        let result = countBy(n, x);
+        expect(result).toEqual([2,4,6,8,10]);
+    });
+    it('Must return null', () => {
+        const n : number = -2;
+        const x : number = 5;
+        let result = countBy(n, x);
+        expect(result).toBeNull();
+    });
+});
+
+describe('countBy', () => {
+    it('Must return new class', () => {
+        const oldObject : SomeClass = {
+            className: "class name"
+        }
+        let result = addClass(oldObject, "name2");
+        const newObject : SomeClass = {
+            className: "class name name2"
+        }
+        expect(result).toEqual(newObject);
     });
 });
