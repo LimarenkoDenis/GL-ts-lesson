@@ -9,6 +9,10 @@ describe('Reject incorrect input values', () => {
     expect(() => addClass(new MenuItem('class1'), 'class1')).toThrowError();
     expect(() => addClass(new MenuItem('class1 class2 class3'), 'class3')).toThrowError();
   });
+
+  test('If className is empty', () => {
+    expect(() => addClass(new MenuItem(), '')).toThrowError();
+  });
 });
 
 describe('Adding class works fine', () => {
@@ -22,10 +26,5 @@ describe('Adding class works fine', () => {
     const menuItem = new MenuItem('class1');
     addClass(menuItem, 'class2');
     expect(menuItem.className).toBe('class1 class2');
-  });
-
-  test('className is already added', () => {
-    expect(() => addClass(new MenuItem('class1'), 'class1')).toThrowError();
-    expect(() => addClass(new MenuItem('class1 class2 class3'), 'class3')).toThrowError();
   });
 });

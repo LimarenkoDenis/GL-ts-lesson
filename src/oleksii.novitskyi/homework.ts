@@ -9,7 +9,7 @@ export class MenuItem {
 const delimeter: string = ' ';
 
 export function addClass(menuItem: MenuItem, classToAdd: string): void {
-  if (classToAdd.indexOf(' ') > 0) {
+  if (!classToAdd || classToAdd.indexOf(' ') > 0) {
     throw new TypeError(classToAdd + ' is incorrect');
   }
 
