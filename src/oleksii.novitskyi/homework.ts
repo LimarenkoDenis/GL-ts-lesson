@@ -24,3 +24,20 @@ export function addClass(menuItem: MenuItem, classToAdd: string): void {
     menuItem.className += delimeter + classToAdd;
   }
 }
+
+export function multiplyNumeric(item: object): void {
+  const propNameList: string[] = Object.getOwnPropertyNames(item);
+  propNameList.forEach(propName => {
+    const propValue: object = Reflect.get(item, propName);
+
+    if (isNumeric(propValue)) {
+      const parsed: number = parseFloat(propValue.toString());
+      Reflect.set(item, propName, parsed * 2);
+    }
+  });
+}
+
+function isNumeric(n: object): boolean {
+  const parsed: number = parseFloat(n.toString());
+  return !isNaN(parsed) && isFinite(parsed);
+}
